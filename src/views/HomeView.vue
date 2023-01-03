@@ -2,6 +2,7 @@
   <div class="home">
     <img alt="Vue logo" src="../assets/logo.png">
     <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <i class="fa fa-home fa-4x text-danger"></i>
   </div>
 </template>
 
