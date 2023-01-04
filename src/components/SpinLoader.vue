@@ -1,11 +1,13 @@
 <template>
-  <div class="home">
-  </div>
+  <h1>loader</h1>
 </template>
 
 <script>
-
 export default {
-  name: 'HomeView',
+name:'SpinLoader'
 }
 </script>
+
+<style>
+
+</style>

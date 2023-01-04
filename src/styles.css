@@ -1,3 +1,7 @@
 body{
     background-color: rgb(200, 199, 187);
 }
+.contact-img{
+    width: 150px;
+    border:50% ;
+}
