@@ -52,10 +52,10 @@
                 </ul>
               </div>
               <div class="col-sm-1  justify-content-center align-items-center">
-                <router-link to="/contacts/view/:cid" class="btn btn-warning my-1">
+                <router-link to="/contacts/profile/:contactId" class="btn btn-warning my-1">
                   <i class="fa fa-eye"></i>
                 </router-link>
-                <router-link to="/contacts/view/:cid" class="btn btn-primary my-1">
+                <router-link to="/contacts/edit/:contactId" class="btn btn-primary my-1">
                   <i class="fa fa-pen"></i>
                 </router-link>
                 <router-link to="/contacts/view/:cid" class="btn btn-danger my-1">
