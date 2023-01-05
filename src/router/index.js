@@ -4,6 +4,7 @@ import ContactList from '../views/ContactList.vue'
 import ContactProfile from '../views/ContactProfile.vue'
 import EditContact from '../views/EditContact.vue'
 import PageNotFound from '../views/PageNotFound.vue'
+import AddContact from '../views/AddContact.vue'
 const routes = [
   {
     path: '/',
@@ -25,6 +26,11 @@ const routes = [
     path: '/contacts/profile/:contactId',
     name: 'contactProfile',
     component: ContactProfile
+  },
+  {
+    path: '/contacts/add',
+    name: 'addContact',
+    component: AddContact
   },
   {
     path: '/:pathMatch(.*)*',
