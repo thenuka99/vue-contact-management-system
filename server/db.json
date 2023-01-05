@@ -1,0 +1,53 @@
+{
+   "contacts": [
+    {
+        "id": "D6BndWnhi",
+        "name": "Nipuna Bbhanuka",
+        "email":"nipuna@mail.com",
+        "mobile":"0711111111",
+        "title":"programmer",
+        "photo":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQzH6TfTtq91hzmeIvm_4JOdb5y1UWjTlYZdA&usqp=CAU",
+        "groupId":"3"
+    },
+    {
+        "id": "D6Bn34hi",
+        "name": "Janith Herath",
+        "email":"JH@mail.com",
+        "mobile":"0711111111",
+        "title":"programmer",
+        "photo":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQzH6TfTtq91hzmeIvm_4JOdb5y1UWjTlYZdA&usqp=CAU",
+        "groupId":"1"
+    },
+    {
+        "id": "D9BndWnhi",
+        "name": "Vihan",
+        "email":"vihan@mail.com",
+        "mobile":"0711111111",
+        "title":"programmer",
+        "photo":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQzH6TfTtq91hzmeIvm_4JOdb5y1UWjTlYZdA&usqp=CAU",
+        "groupId":"2"
+    }
+   ],
+   "groups":[
+    {
+        "id":"1",
+        "name":"Family"
+    },
+    {
+        "id":"2",
+        "name":"Service"
+    },
+    {
+        "id":"3",
+        "name":"Social"
+    },
+    {
+        "id":"4",
+        "name":"Colleague"
+    },
+    {
+        "id":"4",
+        "name":"Friend"
+    }
+   ]
+}
