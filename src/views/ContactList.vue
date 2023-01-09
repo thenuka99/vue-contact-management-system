@@ -26,7 +26,11 @@
                   />
                 </div>
                 <div class="col">
-                  <input type="submit" value="Submit" class="btn btn-outline-dark" />
+                  <input
+                    type="submit"
+                    value="Submit"
+                    class="btn btn-outline-dark"
+                  />
                 </div>
               </div>
             </div>
@@ -36,7 +40,7 @@
     </div>
   </div>
 
-  <div class="" v-if="loading"><spin-loader-vue/></div>
+  <div class="" v-if="loading"><spin-loader-vue /></div>
 
   <div v-if="!loading && errorMsg" class="container">
     <div class="row">
@@ -49,27 +53,43 @@
   <div class="container mt-3" v-if="!loading && contacts">
     <div class="row">
       <div class="col-md-6" v-for="contact in contacts" v-bind:key="contact.id">
-        <div class="card my-2 bg-secondary shadow-lg" >
+        <div class="card my-2 bg-secondary shadow-lg">
           <div class="card-body">
             <div class="row align-items-center">
               <div class="col-sm-4">
-                <img :src="contact.photo" alt="" class="contact-img">
+                <img :src="contact.photo" alt="" class="contact-img" />
               </div>
               <div class="col-sm-6">
                 <ul class="list-group">
-                  <li class="list-group-item">Name : <span class="fw-bold">{{ contact.name }}</span></li>
-                  <li class="list-group-item">Email : <span class="fw-bold">{{contact.email}}</span></li>
-                  <li class="list-group-item">Mobile : <span class="fw-bold">{{contact.mobile}}</span></li>
+                  <li class="list-group-item">
+                    Name : <span class="fw-bold">{{ contact.name }}</span>
+                  </li>
+                  <li class="list-group-item">
+                    Email : <span class="fw-bold">{{ contact.email }}</span>
+                  </li>
+                  <li class="list-group-item">
+                    Mobile : <span class="fw-bold">{{ contact.mobile }}</span>
+                  </li>
                 </ul>
               </div>
-              <div class="col-sm-1  justify-content-center align-items-center">
-                <router-link :to="`/contacts/profile/${contact.id}`" class="btn btn-warning my-1">
+              <div class="col-sm-1 justify-content-center align-items-center">
+                <router-link
+                  :to="`/contacts/profile/${contact.id}`"
+                  class="btn btn-warning my-1"
+                >
                   <i class="fa fa-eye"></i>
                 </router-link>
-                <router-link :to="`/contacts/edit/${contact.id}`" class="btn btn-primary my-1">
+                <router-link
+                  :to="`/contacts/edit/${contact.id}`"
+                  class="btn btn-primary my-1"
+                >
                   <i class="fa fa-pen"></i>
                 </router-link>
-                <router-link to="/contacts/view/:cid" class="btn btn-danger my-1">
+                <router-link
+                  to=""
+                  @click="clickDeleteContact(contact.id)"
+                  class="btn btn-danger my-1"
+                >
                   <i class="fa fa-trash"></i>
                 </router-link>
               </div>
@@ -82,33 +102,48 @@
 </template>
 
 <script>
-import { ContactService } from '@/Services/ContactService';
-import SpinLoaderVue from '@/components/SpinLoader.vue';
+import { ContactService } from "@/Services/ContactService";
+import SpinLoaderVue from "@/components/SpinLoader.vue";
 
 export default {
   name: "ContactList",
-  data(){
+  data() {
     return {
-      loading : false,
-      contacts:[],
-      errorMsg:null
-    }
+      loading: false,
+      contacts: [],
+      errorMsg: null,
+    };
   },
-  created: async function(){
+  created: async function () {
     try {
-      this.loading=true;
+      this.loading = true;
       let response = await ContactService.getAllContacts();
-      console.log(response)
-      this.contacts= response.data;
-      this.loading =false;      
+      console.log(response);
+      this.contacts = response.data;
+      this.loading = false;
     } catch (error) {
-      this.errorMsg=error;
-      this.loading=false;
+      this.errorMsg = error;
+      this.loading = false;
     }
   },
-  components:{
+  components: {
     SpinLoaderVue,
-  }
+  },
+  methods: {
+    clickDeleteContact: async function (id) {
+      try {
+        this.loading = true;
+        let delResponse = await ContactService.deleteContact(id);
+        console.log(delResponse);
+        let response = await ContactService.getAllContacts();
+        console.log(response);
+        this.contacts = response.data;
+        this.loading = false;
+      } catch (error) {
+        this.errorMsg = error;
+      }
+    },
+  },
 };
 </script>
 
