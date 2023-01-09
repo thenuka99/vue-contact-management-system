@@ -15,7 +15,7 @@
       <div class="col-md-4">
         <div class="row">
           <img
-            src="https://cdn-icons-png.flaticon.com/512/219/219986.png"
+            :src="contact.photo"
             alt=""
             class="contact-img-big"
           />
@@ -30,22 +30,22 @@
         <ul class="list-group">
           <ul class="list-group">
             <li class="list-group-item">
-              Name : <span class="fw-bold">Name</span>
+              Name : <span class="fw-bold">{{contact.name}}</span>
             </li>
             <li class="list-group-item">
-              Email : <span class="fw-bold">Email</span>
+              Email : <span class="fw-bold">{{contact.email}}</span>
             </li>
             <li class="list-group-item">
-              Mobile : <span class="fw-bold">Mobile</span>
+              Mobile : <span class="fw-bold">{{ contact.mobile}}</span>
             </li>
             <li class="list-group-item">
-              Company : <span class="fw-bold">Company</span>
+              Company : <span class="fw-bold">{{ contact.company}}</span>
             </li>
             <li class="list-group-item">
-              Title : <span class="fw-bold">Title</span>
+              Title : <span class="fw-bold">{{contact.title}}</span>
             </li>
             <li class="list-group-item">
-              Group : <span class="fw-bold">Group</span>
+              Group : <span class="fw-bold">{{contact.group.name}}</span>
             </li>
           </ul>
         </ul>
@@ -55,8 +55,36 @@
 </template>
 
 <script>
+import { ContactService } from '@/Services/ContactService';
 export default {
   name: "ContactProfile",
+  data(){
+    return{
+      contactId:this.$route.params.contactId,
+      contact: {
+        name: "",
+        email: "",
+        mobile: "",
+        title: "",
+        photo: "",
+        groupId: "",
+        company: "",
+        group:{},
+      },
+      errorMsg:""
+    }
+  },
+  created: async function(){
+    try {
+      let response = await ContactService.getContact(this.contactId);
+      let groupResponse =await ContactService.getGroup(response.data.groupId);
+      console.log(response,groupResponse)
+      this.contact= response.data;
+      this.contact.group= groupResponse.data;
+    } catch (error) {
+      this.errorMsg=error;
+    }
+  },
 };
 </script>
 
