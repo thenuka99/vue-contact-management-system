@@ -53,7 +53,7 @@
           <div class="card-body">
             <div class="row align-items-center">
               <div class="col-sm-4">
-                <img src="https://cdn-icons-png.flaticon.com/512/219/219986.png" alt="" class="contact-img">
+                <img :src="contact.photo" alt="" class="contact-img">
               </div>
               <div class="col-sm-6">
                 <ul class="list-group">
