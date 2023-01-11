@@ -1,52 +1,14 @@
 {
   "contacts": [
     {
-      "id": "D6BndWnhi",
-      "name": "Nipuna Bbhanuka",
-      "email": "nipuna@mail.com",
-      "mobile": "0711111111",
-      "title": "programmer",
+      "name": "nimah",
+      "email": "nm@mail.com",
+      "mobile": 5845489494,
+      "title": "driver",
       "photo": "https://cdn-icons-png.flaticon.com/512/236/236831.png",
-      "groupId": "3"
-    },
-    {
-      "id": "D6Bn34hi",
-      "name": "Janith Herath",
-      "email": "JH@mail.com",
-      "mobile": "0711111111",
-      "title": "programmer",
-      "photo": "https://cdn-icons-png.flaticon.com/512/4140/4140048.png",
-      "groupId": "2",
-      "company": "hhhh"
-    },
-    {
-      "id": "D9BndWnhi",
-      "name": "Vihan",
-      "email": "vihan@mail.com",
-      "mobile": "0711111111",
-      "title": "programmer",
-      "photo": "https://cdn-icons-png.flaticon.com/512/219/219983.png",
-      "groupId": "2"
-    },
-    {
-      "name": "vidith welihinda",
-      "email": "vc@gmail.com",
-      "mobile": 16515916205,
-      "title": "dev",
-      "photo": "https://cdn-icons-png.flaticon.com/512/219/219988.png",
-      "groupId": "4",
-      "company": "wso2",
-      "id": "yx11oi0"
-    },
-    {
-      "name": "Janith Thenuka Herath",
-      "email": "janithherath2@gmail.com",
-      "mobile": 752802291,
-      "title": "Mr",
-      "photo": "https://www.citypng.com/public/uploads/small/11640168385jtmh7kpmvna5ddyynoxsjy5leb1nmpvqooaavkrjmt9zs7vtvuqi4lcwofkzsaejalxn7ggpim4hkg0wbwtzsrp1ldijzbdbsj5z.png",
-      "groupId": "1",
-      "company": "creative",
-      "id": "w7X2Je3"
+      "groupId": "3",
+      "company": "ctv",
+      "id": 2
     }
   ],
   "groups": [

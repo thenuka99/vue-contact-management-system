@@ -1,20 +1,13 @@
-import { createStore } from 'vuex'
-import contactModule from './modules/contact.module'
+import { createStore, createLogger } from 'vuex'
+import contactModule from './modules/contact'
+
+const debug = process.env.NODE_ENV !== 'production'
+
 
 export default createStore({
-  state: {
-    contactState : contactModule.state
-  },
-  getters: {
-    getContactState: function(state){
-      return state.contactState.contacts
-    }
-  },
-  mutations: {
-  },
-  actions: {
-  },
   modules: {
     contactModule
-  }
+  },
+  strict: debug,
+  plugins: debug ? [createLogger()] : []
 })

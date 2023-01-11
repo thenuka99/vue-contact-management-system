@@ -88,17 +88,8 @@ export default {
   },
   methods:{
     submitCreate :async function(){
-try {
-  let response =await ContactService.createContact(this.contact);
-  console.log(response)
-  if(response){
-    return this.$router.push('/')
-  }else{
-    return this.$router.push('/contacts/add')
-  }
-} catch (error) {
-  this.errorMsg=error;
-}
+      this.$store.dispatch("contactModule/createContact",this.contact)
+      return this.$router.push("/");
     }
   }
 };

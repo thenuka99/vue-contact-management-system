@@ -52,7 +52,7 @@
 
   <div class="container mt-3" v-if="!loading && contacts">
     <div class="row">
-      <div class="col-md-6" v-for="contact in contacts" v-bind:key="contact.id">
+      <div class="col-md-6" v-for="contact in contactState.contacts" v-bind:key="contact.id">
         <div class="card my-2 bg-secondary shadow-lg">
           <div class="card-body">
             <div class="row align-items-center">
@@ -102,8 +102,10 @@
 </template>
 
 <script>
-import { ContactService } from "@/Services/ContactService";
+// import { ContactService } from "@/Services/ContactService";
 import SpinLoaderVue from "@/components/SpinLoader.vue";
+import { mapGetters } from 'vuex';
+// import { mapActions } from 'vuex';
 
 export default {
   name: "ContactList",
@@ -114,36 +116,43 @@ export default {
       errorMsg: null,
     };
   },
-  created: async function () {
-    try {
-      this.loading = true;
-      let response = await ContactService.getAllContacts();
-      console.log(response);
-      this.contacts = response.data;
-      this.loading = false;
-    } catch (error) {
-      this.errorMsg = error;
-      this.loading = false;
-    }
-  },
+  // created: async function () {
+  //   try {
+  //     this.loading = true;
+  //     let response = await ContactService.getAllContacts();
+  //     console.log(response);
+  //     this.contacts = response.data;
+  //     this.loading = false;
+  //   } catch (error) {
+  //     this.errorMsg = error;
+  //     this.loading = false;
+  //   }
+  //   console.log("Store-------------",this.$store)
+  // },
   components: {
     SpinLoaderVue,
   },
   methods: {
     clickDeleteContact: async function (id) {
-      try {
-        this.loading = true;
-        let delResponse = await ContactService.deleteContact(id);
-        console.log(delResponse);
-        let response = await ContactService.getAllContacts();
-        console.log(response);
-        this.contacts = response.data;
-        this.loading = false;
-      } catch (error) {
-        this.errorMsg = error;
-      }
+      // try {
+      //   this.loading = true;
+      //   let delResponse = await ContactService.deleteContact(id);
+      //   console.log(delResponse);
+      //   let response = await ContactService.getAllContacts();
+      //   console.log(response);
+      //   this.contacts = response.data;
+      //   this.loading = false;
+      // } catch (error) {
+      //   this.errorMsg = error;
+      // }
+      this.$store.dispatch('contactModule/deleteContact',id)
     },
+  },created:function(){
+    this.$store.dispatch('contactModule/getContacts')
   },
+  computed: mapGetters({
+    contactState: "contactModule/getContactState",
+  }),
 };
 </script>
 

@@ -78,6 +78,7 @@
 
 <script>
 import { ContactService } from "@/Services/ContactService";
+import { mapGetters } from 'vuex';
 export default {
   name: "EditContact",
   data() {
@@ -97,11 +98,12 @@ export default {
     };
   },
   created: async function () {
+    this.$store.dispatch("contactModule/getDetailedContact",this.contactId)
     try {
-      let response = await ContactService.getContact(this.contactId);
+  
       let groupResponse = await ContactService.getAllGroups();
-      console.log(response, groupResponse);
-      this.contact = response.data;
+      console.log(this.contactState.contact, groupResponse);
+      this.contact = this.contactState.contact;
       this.groups = groupResponse.data;
     } catch (error) {
       this.errorMsg = error;
@@ -109,15 +111,13 @@ export default {
   },
   methods: {
     submitUpdate: async function () {
-      try {
-        let response = await ContactService.updateContact(this.contact,this.contactId);
-        console.log(response);
-        return this.$router.push("/");
-      } catch (error) {
-        this.errorMsg = error;
-      }
+      this.$store.dispatch("contactModule/updateContact",this.contact)
+      return this.$router.push("/");
     },
   },
+  computed: mapGetters({
+    contactState: "contactModule/getContactState",
+  }),
 };
 </script>
 <style>
