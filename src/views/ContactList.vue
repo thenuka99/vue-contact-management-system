@@ -8,7 +8,7 @@
             ><i class="fa fa-plus-circle"></i> New</router-link
           >
         </p>
-        <p class="fst-italic">
+        <p class="fst-italic text-red-500 bg-red-500">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad magnam
           blanditiis sunt commodi nostrum velit fugit veritatis quisquam cumque
           nesciunt tenetur est consequuntur, voluptatibus amet ex quam

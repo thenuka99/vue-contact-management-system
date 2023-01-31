@@ -1,7 +1,7 @@
 {
   "contacts": [
     {
-      "name": "nimah",
+      "name": "nimal",
       "email": "nm@mail.com",
       "mobile": 5845489494,
       "title": "driver",
@@ -9,6 +9,16 @@
       "groupId": "3",
       "company": "ctv",
       "id": 2
+    },
+    {
+      "name": "janith herath",
+      "email": "janithherath2@gmil.com",
+      "mobile": 54545487,
+      "title": "dev",
+      "photo": "https://cdn-icons-png.flaticon.com/512/219/219986.png",
+      "groupId": "1",
+      "company": "creative",
+      "id": 3
     }
   ],
   "groups": [
